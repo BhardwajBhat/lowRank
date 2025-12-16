@@ -377,8 +377,14 @@ if __name__ == "__main__":
 
             with torch.no_grad():
                 outputs = model(input_ids)
+                # --- FIX START ---
+                # Check if outputs is an object (HF) or just a Tensor (Custom)
+                if hasattr(outputs, "logits"):
+                    logits = outputs.logits
+                else:
+                    logits = outputs  # Your custom model returns this directl
                 # Calculate loss manually to handle shifting correctly
-                shift_logits = outputs.logits[..., :-1, :].contiguous()
+                shift_logits = logits[..., :-1, :].contiguous()
                 shift_labels = target_ids[..., 1:].contiguous()
 
                 loss = F.cross_entropy(
