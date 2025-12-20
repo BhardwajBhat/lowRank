@@ -196,9 +196,9 @@ def main():
     csv_file = "mamba_combinatorial_svd.csv"
 
     # Define the rank search space
-    ranks_b = [16, 12, 8, 4]
-    ranks_c = [16, 12, 8, 4]
-    ranks_dt = [48, 36, 24, 12]
+    ranks_b = [16, 8, 4]
+    ranks_c = [16, 8, 4]
+    ranks_dt = [48, 36, 24]
 
     # Generate all combinations
     combinations = list(itertools.product(ranks_b, ranks_c, ranks_dt))
@@ -247,9 +247,9 @@ def main():
             print(f"🚀 Running: {run_name}")
 
             config = {
-                "x_proj_b": {"svd_rank": rb},
-                "x_proj_c": {"svd_rank": rc},
-                "dt_proj": {"svd_rank": rdt},
+                "x_proj_b": {"svd_rank": rb, "quant": 4},
+                "x_proj_c": {"svd_rank": rc, "quant": 4},
+                "dt_proj": {"svd_rank": rdt, "quant": 4},
             }
 
             # Apply SVD to custom model (skipping sensitive layers)

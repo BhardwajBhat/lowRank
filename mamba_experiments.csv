@@ -1,0 +1,15 @@
+Name,B_Rank,C_Rank,DT_Rank,In_Proj_Rank,Out_Proj_Rank,Quantized,Quant_Bits,Skip_Layers,Compression_Ratio,Perplexity,Time(s),Peak_Mem(GB)
+Baseline,Full,Full,Full,Full,Full,False,N/A,None,1.0000,25.1302,21.03,1.100
+DT48,Full,Full,48,Full,Full,False,N/A,None,1.0006,25.1302,32.01,1.351
+C16,Full,16,Full,Full,Full,False,N/A,None,1.0001,25.1302,31.98,1.351
+C16_DT48,Full,16,48,Full,Full,False,N/A,None,1.0007,25.1302,32.05,1.351
+B16,16,Full,Full,Full,Full,False,N/A,None,1.0001,25.1302,32.00,1.351
+B16_DT48,16,Full,48,Full,Full,False,N/A,None,1.0007,25.1302,31.91,1.351
+B16_C16,16,16,Full,Full,Full,False,N/A,None,1.0001,25.1302,31.88,1.351
+B16_C16_DT48,16,16,48,Full,Full,False,N/A,None,1.0008,25.1302,31.91,1.351
+B4,4,Full,Full,Full,Full,False,N/A,None,0.9950,471.6293,31.97,1.351
+B4_Skip2,4,Full,Full,Full,Full,False,N/A,"0,23",0.9950,97.9586,31.76,1.351
+B4_DT48,4,Full,48,Full,Full,False,N/A,None,0.9956,471.6288,31.79,1.351
+B4_DT48_Skip2,4,Full,48,Full,Full,False,N/A,"0,23",0.9956,97.9581,31.74,1.351
+B4_C16,4,16,Full,Full,Full,False,N/A,None,0.9951,471.6295,31.73,1.351
+B4_C16_Skip2,4,16,Full,Full,Full,False,N/A,"0,23",0.9951,97.9582,31.67,1.351
